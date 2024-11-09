@@ -1,0 +1,127 @@
+@import 'colors.less';
+
+#app-root-2024-co2emissions .app {
+  font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  .flag {
+    display: inline-block;
+    height: 23px;
+    max-width: none;
+    padding: 0;
+    vertical-align: middle;
+    width: 33px;
+  }
+  hr {
+    border-color: #eee;;
+    border-style: solid;
+    border-width: 1px 0 0 0;
+    margin: auto auto 5px auto;
+  }
+  .chart_container {
+    background-color: #f4f9fd;
+    margin: auto auto 20px auto;
+    position: relative;
+    .chart {
+      overflow: hidden;
+    }
+    .meta_data_map,
+    .meta_data {
+      bottom: 10px;
+      color: #222;
+      position: absolute;
+      right: 20px;
+      text-align: right;
+      .values {
+        .year {
+          display: inline-block;
+          font-size: 60px;
+          font-weight: 700;
+          line-height: 60px;
+        }
+        .total {
+          display: inline-block;
+          font-size: 22px;
+          font-weight: 500;
+          line-height: 22px;
+        }
+      }
+    }
+    .highcharts-a11y-proxy-button {
+      cursor: default !important;
+    }
+    .line_chart {
+      margin-top: 5px;
+      svg {
+        height: 42px;
+        width: 170px;
+        .line_container {
+          fill: none;
+          stroke-width: 3;
+          stroke: @unblue;
+        }
+      }
+    }
+    .chart_image {
+      left: 0px;
+      position: relative;
+    }
+    .chart_label_text {
+      position: absolute;
+      font-size: 14px;
+      max-width: 200px;
+      margin-top: -10px;
+    }
+
+    .play_controls {
+      margin: auto auto 10px auto;
+      max-width: 1000px;
+      padding-left: 10px;
+      padding-top: 10px;
+      h3 {
+        display: inline-block;
+        font-size: 30px;
+        line-height: 30px;
+        margin: 0 0 0 10px;
+        vertical-align: middle;
+      }
+      button {
+        background-color: transparent;
+        border: 0;
+        box-sizing: border-box;
+        color: @unbluetext;
+        cursor: pointer;
+        font-size: 40px;
+        line-height: 40px;
+        margin: 0;
+        outline: none;
+        padding: 0;
+        text-align: middle;
+        vertical-align: middle;
+        width: 40px;
+      }
+      .play_range_map[type=range],
+      .play_range[type=range] {
+        background-color: @ungrey;
+        border-radius: 9px;
+        display: inline-block;
+        height: 9px;
+        width: calc(100% - 70px);
+        &::-webkit-slider-thumb {
+          background-color: @unblue;
+          border-radius: 11px;
+          border: 1px solid @unblue;
+        }
+        &[type="range"] {
+          accent-color: @unbluetext;
+        }
+      }
+    }
+    .infotext {
+      color: #666;
+      font-size: 13px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+    }
+  }
+}
+
+@import 'basics.less';
