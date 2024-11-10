@@ -264,7 +264,7 @@ function LineChart({
           rules: [{
             chartOptions: {
               chart: {
-                height: 700
+                height: 750
               },
               legend: {
                 layout: 'horizontal'
