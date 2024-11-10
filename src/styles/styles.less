@@ -63,12 +63,22 @@
     .chart_image {
       left: 0px;
       position: relative;
+      &.africa {
+        background-image: url('https://storage.unctad.org/2024-co2emissions/assets/img/africa_map.png');
+        background-size: 100% 100%;
+        background-position: 50% 50%;
+      }
     }
     .chart_label_text {
-      position: absolute;
       font-size: 14px;
-      max-width: 200px;
+      left: -100px;
       margin-top: -10px;
+      max-width: 200px;
+      position: absolute;
+      text-shadow: 1px 1px 2px #fff;
+      @media all and (max-width: 600px) {
+        display: none;
+      }
     }
 
     .play_controls {

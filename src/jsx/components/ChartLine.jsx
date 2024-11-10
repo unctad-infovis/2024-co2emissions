@@ -58,7 +58,7 @@ function LineChart({
   const endYear = 2022;
   const input = useRef();
   const startYear = 1952;
-  const [rangeValue, setRangeValue] = useState(1952);
+  const [rangeValue, setRangeValue] = useState(startYear);
   const [chartDone, setChartDone] = useState(false);
   const [once, setOnce] = useState(false);
 
@@ -72,18 +72,6 @@ function LineChart({
       return el;
     });
     return output;
-    //
-    // const output = Object.entries(data).map(country => {
-    //   const countryName = country[1].name;
-    //   const countryData = country[1].data;
-    //   return [countryName, countryData[year - startYear].value];
-    // }).sort((a, b) => b[1] - a[1]);
-    // const slice = output.slice(1, nbr);
-
-    // return {
-    //   total: output[0],
-    //   values: slice.map(el => [el[0], el[1]])
-    // };
   }, [data]);
 
   const pause = useCallback(() => {
@@ -103,6 +91,10 @@ function LineChart({
     chart.current.series[1].update({ data: tmp_data[1].data });
     chart.current.series[2].update({ data: tmp_data[2].data });
     chart.current.series[3].update({ data: tmp_data[3].data });
+    chart.current.series[4].update({ data: tmp_data[4].data });
+    chart.current.series[5].update({ data: tmp_data[5].data });
+    chart.current.series[6].update({ data: tmp_data[6].data });
+    chart.current.series[7].update({ data: tmp_data[7].data });
     // chart.current.setTitle({
     //   text: `${title} in ${current_year_idx}?`
     // });
@@ -124,8 +116,8 @@ function LineChart({
     const play = () => {
       btn.current.innerHTML = '⏸︎';
       chart.current.sequenceTimer = setInterval(() => {
-        update(1);
-      }, 600);
+        update(3);
+      }, 500);
     };
     if (chart.current.sequenceTimer) {
       pause();
@@ -164,6 +156,7 @@ function LineChart({
           text: `<em>Source:</em> ${source} ${note ? (`<br /><em>Note:</em> <span>${note}</span>`) : ''}`,
           useHTML: true,
           verticalAlign: 'bottom',
+          widthAdjust: -170,
           x: 0
         },
         chart: {
@@ -244,14 +237,14 @@ function LineChart({
               formatter() {
                 const label = this;
                 if (label.point.index === label.series.points.length - 1) {
-                  if (label.series.name === 'Latin America and the Caribbean') {
-                    return ` <img src="https://storage.unctad.org/2024-co2emissions/assets/img/latin_america_and_the_caribbean_map.png" alt="" class="chart_image" style="width: ${40 * label.point.size}px; top: ${20 * label.point.size}px; height: ${40 * label.point.size}px"/><div class="chart_label_text" style="left: ${40 * label.point.size}px">Latin America and the Caribbean</div>`;
-                  } if (label.series.name === 'Developing Asia and Oceania') {
-                    return ` <img src="https://storage.unctad.org/2024-co2emissions/assets/img/asia_and_oceania_map.png" alt="" class="chart_image" style="width: ${40 * label.point.size}px; top: ${20 * label.point.size}px; height: ${40 * label.point.size}px"/><div class="chart_label_text" style="left: ${40 * label.point.size}px">Asia and Oceania</div>`;
-                  } if (label.series.name === 'Developed') {
-                    return ` <img src="https://storage.unctad.org/2024-co2emissions/assets/img/developed_map.png" alt=""  class="chart_image" style="width: ${40 * label.point.size}px; top: ${20 * label.point.size}px; height: ${40 * label.point.size}px"/><div class="chart_label_text" style="left: ${40 * label.point.size}px">Developed</div>`;
-                  } if (label.series.name === 'Africa') {
-                    return ` <img src="https://storage.unctad.org/2024-co2emissions/assets/img/africa_map.png" alt=""  class="chart_image" style="width: ${40 * label.point.size}px; top:${20 * label.point.size}px; height: ${40 * label.point.size}px"/><div class="chart_label_text" style="left: ${40 * label.point.size}px">Africa</div>`;
+                  if (label.series.name === 'Abs Latin America and the Caribbean') {
+                    return ` <img src="https://storage.unctad.org/2024-co2emissions/assets/img/latin_america_and_the_caribbean_map.png" alt="" class="chart_image" style="width: ${40 * label.point.size}px; top: ${20 * label.point.size}px; height: ${40 * label.point.size}px"/><div class="chart_label_text" style="color: #72bf44; left: ${40 * label.point.size}px">Latin America and the Caribbean</div>`;
+                  } if (label.series.name === 'Abs Developing Asia and Oceania') {
+                    return ` <img src="https://storage.unctad.org/2024-co2emissions/assets/img/asia_and_oceania_map.png" alt="" class="chart_image" style="width: ${40 * label.point.size}px; top: ${20 * label.point.size}px; height: ${40 * label.point.size}px"/><div class="chart_label_text" style="color: #eb1f48; left: ${40 * label.point.size}px">Asia and Oceania</div>`;
+                  } if (label.series.name === 'Abs Developed') {
+                    return ` <img src="https://storage.unctad.org/2024-co2emissions/assets/img/developed_map.png" alt=""  class="chart_image" style="width: ${40 * label.point.size}px; top: ${20 * label.point.size}px; height: ${40 * label.point.size}px"/><div class="chart_label_text" style="color: #009edb; left: ${40 * label.point.size}px">Developed</div>`;
+                  } if (label.series.name === 'Abs Africa') {
+                    return ` <img src="https://storage.unctad.org/2024-co2emissions/assets/img/africa_map.png" alt=""  class="chart_image" style="width: ${40 * label.point.size}px; top:${20 * label.point.size}px; height: ${40 * label.point.size}px"/><div class="chart_label_text" style="color: #d67c29; left: ${40 * label.point.size}px">Africa</div>`;
                   }
                 }
                 return '';
@@ -270,6 +263,9 @@ function LineChart({
         responsive: {
           rules: [{
             chartOptions: {
+              chart: {
+                height: 700
+              },
               legend: {
                 layout: 'horizontal'
               },
@@ -340,8 +336,8 @@ function LineChart({
           // tickInterval: 1000 * 60 * 60 * 24 * 365,
           lineColor: '#ccc',
           lineWidth: 0,
-          max: 60000,
-          // min: 0,
+          max: 80000,
+          min: 999,
           opposite: false,
           // plotLines: plot_lines,
           tickLength: 5,
@@ -354,7 +350,7 @@ function LineChart({
             style: {
               color: 'rgba(0, 0, 0, 0.8)',
               fontFamily: 'Inter',
-              fontSize: '16px',
+              fontSize: '14px',
               fontWeight: 600
             },
             text: 'GDP per capita'
@@ -371,7 +367,7 @@ function LineChart({
             style: {
               color: 'rgba(0, 0, 0, 0.8)',
               fontFamily: 'Inter',
-              fontSize: '16px',
+              fontSize: '14px',
               fontWeight: 400
             }
           },
@@ -387,7 +383,7 @@ function LineChart({
           title: {
             enabled: true,
             rotation: 0,
-            x: 140,
+            x: 150,
             y: -5,
             align: 'high',
             reserveSpace: false,
@@ -446,7 +442,7 @@ LineChart.propTypes = {
 };
 
 LineChart.defaultProps = {
-  chart_height: 520,
+  chart_height: 700,
   note: false,
   subtitle: ''
 };
