@@ -94,7 +94,7 @@ function Figure1() {
         data_decimals={1}
         idx="01"
         note="Note: Gross domestic product (GDP) per capita converted to constant 2011 international dollars using purchasing power parity rates. CO2 per capita in tons. Horizontal axis in logarithmic scale. Size of the bubble shows total yearly CO2 emissions."
-        source="UN Global Crisis Responce Group – technical team"
+        source="UN Global Crisis Responce Group – technical team based on Global Carbon Project and the Maddison Project Database."
         subtitle="Gross domestic product (GDP) versus CO2 per capita, selected country groups, 1952–2022"
         show_only_first_and_last_labels={false}
         suffix=""

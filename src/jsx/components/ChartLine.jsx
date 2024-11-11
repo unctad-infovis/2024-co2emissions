@@ -116,7 +116,7 @@ function LineChart({
     const play = () => {
       btn.current.innerHTML = '⏸︎';
       chart.current.sequenceTimer = setInterval(() => {
-        update(3);
+        update(1);
       }, 500);
     };
     if (chart.current.sequenceTimer) {
@@ -238,13 +238,13 @@ function LineChart({
                 const label = this;
                 if (label.point.index === label.series.points.length - 1) {
                   if (label.series.name === 'Abs Latin America and the Caribbean') {
-                    return ` <img src="https://storage.unctad.org/2024-co2emissions/assets/img/latin_america_and_the_caribbean_map.png" alt="" class="chart_image" style="width: ${40 * label.point.size}px; top: ${20 * label.point.size}px; height: ${40 * label.point.size}px"/><div class="chart_label_text" style="color: #72bf44; left: ${40 * label.point.size}px">Latin America and the Caribbean</div>`;
+                    return ` <img src="https://storage.unctad.org/2024-co2emissions/assets/img/latin_america_and_the_caribbean_map.png" alt="" class="chart_image" style="width: ${30 * label.point.size}px; top: ${25 * label.point.size}px; height: ${30 * label.point.size}px"/><div class="chart_label_text" style="color: #72bf44; left: ${30 * label.point.size}px; margin-top: ${1.5 * label.point.size}px">Latin America and the Caribbean</div>`;
                   } if (label.series.name === 'Abs Developing Asia and Oceania') {
-                    return ` <img src="https://storage.unctad.org/2024-co2emissions/assets/img/asia_and_oceania_map.png" alt="" class="chart_image" style="width: ${40 * label.point.size}px; top: ${20 * label.point.size}px; height: ${40 * label.point.size}px"/><div class="chart_label_text" style="color: #eb1f48; left: ${40 * label.point.size}px">Asia and Oceania</div>`;
+                    return ` <img src="https://storage.unctad.org/2024-co2emissions/assets/img/asia_and_oceania_map.png" alt="" class="chart_image" style="width: ${30 * label.point.size}px; top: ${25 * label.point.size}px; height: ${30 * label.point.size}px"/><div class="chart_label_text" style="color: #eb1f48; left: ${30 * label.point.size}px; margin-top: ${1.5 * label.point.size}px">Asia and Oceania</div>`;
                   } if (label.series.name === 'Abs Developed') {
-                    return ` <img src="https://storage.unctad.org/2024-co2emissions/assets/img/developed_map.png" alt=""  class="chart_image" style="width: ${40 * label.point.size}px; top: ${20 * label.point.size}px; height: ${40 * label.point.size}px"/><div class="chart_label_text" style="color: #009edb; left: ${40 * label.point.size}px">Developed</div>`;
+                    return ` <img src="https://storage.unctad.org/2024-co2emissions/assets/img/developed_map.png" alt=""  class="chart_image" style="width: ${30 * label.point.size}px; top: ${25 * label.point.size}px; height: ${30 * label.point.size}px"/><div class="chart_label_text" style="color: #009edb; left: ${30 * label.point.size}px; margin-top: ${1.5 * label.point.size}px">Developed</div>`;
                   } if (label.series.name === 'Abs Africa') {
-                    return ` <img src="https://storage.unctad.org/2024-co2emissions/assets/img/africa_map.png" alt=""  class="chart_image" style="width: ${40 * label.point.size}px; top:${20 * label.point.size}px; height: ${40 * label.point.size}px"/><div class="chart_label_text" style="color: #d67c29; left: ${40 * label.point.size}px">Africa</div>`;
+                    return ` <img src="https://storage.unctad.org/2024-co2emissions/assets/img/africa_map.png" alt=""  class="chart_image" style="width: ${30 * label.point.size}px; top:${25 * label.point.size}px; height: ${30 * label.point.size}px"/><div class="chart_label_text" style="color: #d67c29; left: ${30 * label.point.size}px; margin-top: ${1.5 * label.point.size}px">Africa</div>`;
                   }
                 }
                 return '';
@@ -268,6 +268,13 @@ function LineChart({
               },
               legend: {
                 layout: 'horizontal'
+              },
+              plotOptions: {
+                series: {
+                  dataLabels: {
+                    enabled: false,
+                  }
+                }
               },
               title: {
                 margin: 20,
