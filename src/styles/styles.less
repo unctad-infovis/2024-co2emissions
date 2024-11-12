@@ -63,6 +63,9 @@
     .chart_image {
       left: 0px;
       opacity: 1;
+      &.latin {
+        z-index: 100;
+      }
       position: relative;
       &.africa {
         background-image: url('https://storage.unctad.org/2024-co2emissions/assets/img/africa_map.png');
@@ -76,6 +79,9 @@
       max-width: 200px;
       position: absolute;
       text-shadow: 1px 1px 2px #fff;
+      &.latin {
+        z-index: 100;
+      }
       @media all and (max-width: 600px) {
         display: none;
       }
