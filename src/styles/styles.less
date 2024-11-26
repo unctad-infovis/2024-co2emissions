@@ -2,6 +2,8 @@
 
 #app-root-2024-co2emissions .app {
   font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 40px auto;
+  // max-width: 1000px;
   .flag {
     display: inline-block;
     height: 23px;
@@ -62,15 +64,11 @@
     }
     .chart_image {
       left: 0px;
+      max-width: none;
       opacity: 1;
+      position: relative;
       &.latin {
         z-index: 100;
-      }
-      position: relative;
-      &.africa {
-        background-image: url('https://storage.unctad.org/2024-co2emissions/assets/img/africa_map.png');
-        background-size: 100% 100%;
-        background-position: 50% 50%;
       }
     }
     .chart_label_text {
