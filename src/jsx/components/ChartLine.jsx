@@ -156,7 +156,6 @@ function LineChart({
           text: `<em>Source:</em> ${source} ${note ? (`<br /><em>Note:</em> <span>${note}</span>`) : ''}`,
           useHTML: true,
           verticalAlign: 'bottom',
-          widthAdjust: -170,
           x: 0
         },
         chart: {
@@ -215,8 +214,9 @@ function LineChart({
         legend: {
           align: 'left',
           enabled: true,
+          itemDistance: 10,
           margin: 30,
-          verticalAlign: 'top',
+          verticalAlign: 'top'
         },
         plotOptions: {
           series: {
@@ -246,8 +246,9 @@ function LineChart({
                   } if (label.series.name === 'Abs Africa') {
                     return ` <img src="https://storage.unctad.org/2024-co2emissions/assets/img/africa_map.png" alt=""  class="chart_image" style="width: ${30 * label.point.size}px; top:${25 * label.point.size}px; height: ${30 * label.point.size}px"/><div class="chart_label_text" style="color: #d67c29; left: ${30 * label.point.size}px; margin-top: ${1.5 * label.point.size}px">Africa</div>`;
                   }
+                  return null;
                 }
-                return '';
+                return null;
               },
               useHTML: true
             },
@@ -264,7 +265,16 @@ function LineChart({
           rules: [{
             chartOptions: {
               chart: {
-                height: 750
+                height: 800
+              }
+            },
+            condition: {
+              maxWidth: 600
+            }
+          }, {
+            chartOptions: {
+              chart: {
+                height: 900
               },
               legend: {
                 layout: 'horizontal'
@@ -286,15 +296,6 @@ function LineChart({
             },
             condition: {
               maxWidth: 500
-            }
-          }, {
-            chartOptions: {
-              caption: {
-                widthAdjust: -120
-              }
-            },
-            condition: {
-              maxWidth: 600
             }
           }]
         },

@@ -11,21 +11,21 @@ function Figure1() {
 
   const cleanData = (data) => {
     const tmp_data = [{
-      color: '#72bf44',
+      color: '#ffcb05',
       data: [],
-      name: 'Latin America and the Caribbean'
-    }, {
-      color: '#eb1f48',
-      data: [],
-      name: 'Developing Asia and Oceania'
+      name: 'Africa'
     }, {
       color: '#009edb',
       data: [],
       name: 'Developed'
     }, {
-      color: '#ffcb05',
+      color: '#eb1f48',
       data: [],
-      name: 'Africa'
+      name: 'Developing Asia and Oceania'
+    }, {
+      color: '#72bf44',
+      data: [],
+      name: 'Latin America and the Caribbean'
     }, {
       color: 'transparent',
       data: [],
@@ -53,16 +53,16 @@ function Figure1() {
     }];
     data.map((el) => {
       if (el.Name === 'Latin America and the Caribbean') {
-        tmp_data[0].data.push({ x: parseFloat(el.gdp_per_capita), y: parseFloat(el.co2_per_capita), size: parseFloat(el.normalised_size) });
+        tmp_data[3].data.push({ x: parseFloat(el.gdp_per_capita), y: parseFloat(el.co2_per_capita), size: parseFloat(el.normalised_size) });
         tmp_data[4].data.push({ x: parseFloat(el.gdp_per_capita_abs), y: parseFloat(el.co2_per_capita_abs), size: parseFloat(el.normalised_size) });
       } else if (el.Name === 'Developing Asia and Oceania') {
-        tmp_data[1].data.push({ x: parseFloat(el.gdp_per_capita), y: parseFloat(el.co2_per_capita), size: parseFloat(el.normalised_size) });
+        tmp_data[2].data.push({ x: parseFloat(el.gdp_per_capita), y: parseFloat(el.co2_per_capita), size: parseFloat(el.normalised_size) });
         tmp_data[5].data.push({ x: parseFloat(el.gdp_per_capita_abs), y: parseFloat(el.co2_per_capita_abs), size: parseFloat(el.normalised_size) });
       } else if (el.Name === 'Developed') {
-        tmp_data[2].data.push({ x: parseFloat(el.gdp_per_capita), y: parseFloat(el.co2_per_capita), size: parseFloat(el.normalised_size) });
+        tmp_data[1].data.push({ x: parseFloat(el.gdp_per_capita), y: parseFloat(el.co2_per_capita), size: parseFloat(el.normalised_size) });
         tmp_data[6].data.push({ x: parseFloat(el.gdp_per_capita_abs), y: parseFloat(el.co2_per_capita_abs), size: parseFloat(el.normalised_size) });
       } else if (el.Name === 'Africa') {
-        tmp_data[3].data.push({ x: parseFloat(el.gdp_per_capita), y: parseFloat(el.co2_per_capita), size: parseFloat(el.normalised_size) });
+        tmp_data[0].data.push({ x: parseFloat(el.gdp_per_capita), y: parseFloat(el.co2_per_capita), size: parseFloat(el.normalised_size) });
         tmp_data[7].data.push({ x: parseFloat(el.gdp_per_capita_abs), y: parseFloat(el.co2_per_capita_abs), size: parseFloat(el.normalised_size) });
       }
       return true;
@@ -93,7 +93,7 @@ function Figure1() {
         data={dataFigure}
         data_decimals={1}
         idx="01"
-        note="Note: Gross domestic product (GDP) per capita converted to constant 2011 international dollars using purchasing power parity rates. CO2 per capita in tons. Horizontal axis in logarithmic scale. Size of the bubble shows total yearly CO2 emissions."
+        note="Gross domestic product (GDP) per capita converted to constant 2011 international dollars using purchasing power parity rates. CO2 per capita in tons. Horizontal axis in logarithmic scale. Size of the bubble shows total yearly CO2 emissions."
         source="UN Global Crisis Responce Group – technical team based on Global Carbon Project and the Maddison Project Database."
         subtitle="Gross domestic product (GDP) versus CO2 per capita, selected country groups, 1952–2022"
         show_only_first_and_last_labels={false}
