@@ -1,0 +1,18 @@
+{
+  "name": "2024-co2emissions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "login": "az login --service-principal -u $AZURE_USER -p $AZURE_PW --tenant $AZURE_TENANT",
+    "push": "git push && git push unctad main",
+    "sync-prod":"azcopy copy \"public/*\" \"https://${AZURE_STORAGE_NAME}.blob.core.windows.net/\\$web/${npm_package_name}/\" --include-path 'js;css;assets' --recursive --exclude-pattern '.DS_Store'"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+  },
+  "dependencies": {
+  }
+}
