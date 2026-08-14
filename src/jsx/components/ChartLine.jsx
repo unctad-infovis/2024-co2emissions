@@ -49,7 +49,7 @@ Highcharts.SVGRenderer.prototype.symbols.download = (x, y, w, h) => {
 };
 
 function LineChart({
-  data, chart_height, idx, note, source, subtitle, title
+  data, chart_height = 700, idx, note = false, source, subtitle = '', title
 }) {
   const btn = useRef();
   const chart = useRef();
@@ -456,12 +456,6 @@ LineChart.propTypes = {
   source: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   title: PropTypes.string.isRequired
-};
-
-LineChart.defaultProps = {
-  chart_height: 700,
-  note: false,
-  subtitle: ''
 };
 
 export default memo(LineChart);
